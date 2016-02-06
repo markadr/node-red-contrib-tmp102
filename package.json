@@ -1,0 +1,22 @@
+{
+    "name": "node-red-contrib-tmp102",
+    "version": "0.0.1",
+    "description": "A Node for reading a TMP102 temperature sensor via I2C.",
+    "dependencies": {
+        "i2c": ">=1.8.0"
+    },
+    "keywords": [
+        "node-red",
+        "tmp102",
+        "i2c",
+        "raspberrypi"
+    ],
+    "node-red": {
+        "nodes": {
+            "i2c-tmp102": "tmp102/tmp102.js"
+        }
+    },
+    "author": "Mark de Reeper",
+    "contributors": [],
+    "license": "Apache-2.0"
+}

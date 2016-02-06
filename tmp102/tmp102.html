@@ -1,0 +1,67 @@
+<!--
+   Copyright 2016 Mark de Reeper
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<script type="text/javascript">
+    RED.nodes.registerType('i2c-tmp102', {
+        category: 'function',
+        color: '#C0DEED',
+        defaults: {
+            name: { value:"i2c-tmp102" },
+            i2caddress: { value: "0x48", required: true},
+            i2cdevice: { value: "/dev/i2c-1", required: true }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "serial.png",
+        label: function() {
+            return this.name||"i2c-tmp102";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="i2c-tmp102">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-i2cdevice"><i class="icon-tag"></i> I2C Device</label>
+        <select type="text" id="node-input-i2cdevice">
+            <option value="/dev/i2c-0">0</option>
+            <option value="/dev/i2c-1">1</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-i2caddress"><i class="icon-tag"></i> I2C Address</label>
+        <!--
+            http://www.zagrosrobotics.com/files/tmp102.pdf
+            DEVICE TWO-WIRE ADDRESS  A0 PIN CONNECTION
+                1001000 (0x48)      Ground
+                1001001 (0x49)      V+
+                1001010 (0x4A)      SDA
+                1001011 (0x4B)      SCL
+        -->
+        <select type="text" id="node-input-i2caddress">
+            <option value="0x48">0x48</option>
+            <option value="0x49">0x49</option>
+            <option value="0x4A">0x4A</option>
+            <option value="0x4B">0x4B</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="i2c-tmp102">
+    <p>A Node for reading a TMP102 temperature sensor via I2C.</p>
+</script>
