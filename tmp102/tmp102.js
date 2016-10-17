@@ -22,7 +22,7 @@ module.exports = function (RED) {
 
         var node = this;
         this.name = config.name;
-        this.tmp102 = new i2c(config.i2caddress, {device: config.i2cdevice});
+        this.tmp102 = new i2c(parseInt(config.i2caddress), {device: config.i2cdevice});
 
         this.on('input', function (msg) {
             this.status({fill: "green", shape: "dot", text: "connected"});
