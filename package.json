@@ -18,9 +18,9 @@
     },
     "author": "Mark de Reeper",
     "contributors": [],
-    "license": "Apache-2.0”,
+    "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "http://github.com/markadr/node-red-contrib-tmp102.git”
+        "url": "http://github.com/markadr/node-red-contrib-tmp102.git"
     }
 }
